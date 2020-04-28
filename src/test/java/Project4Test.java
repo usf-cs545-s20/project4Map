@@ -341,7 +341,7 @@ public class Project4Test {
         map.put("five", "cinco");
         map.put("six", "seis");
         String actual = map.toString();
-        String expected = "0: null" + System.lineSeparator() +
+        String expected1 = "0: null" + System.lineSeparator() +
                 "1: (two, do, false)" + System.lineSeparator() +
                 "2: (one, uno, false)" + System.lineSeparator() +
                 "3: null" + System.lineSeparator() +
@@ -352,10 +352,29 @@ public class Project4Test {
                 "8: (five, cinco, false)" + System.lineSeparator() +
                 "9: null" + System.lineSeparator() +
                 "10: (six, seis, false)" + System.lineSeparator();
+
+        String expected2 = "0: null" + System.lineSeparator() +
+                "1: (two, do, false)" + System.lineSeparator() +
+                "2: (one, uno, false)" + System.lineSeparator() +
+                "3: null" + System.lineSeparator() +
+                "4: (four, cuantro, false)" + System.lineSeparator() +
+                "5: null" + System.lineSeparator() +
+                "6: null" + System.lineSeparator() +
+                "7: null" + System.lineSeparator() +
+                "8: (five, cinco, false)" + System.lineSeparator() +
+                "9: (three, tres, false)" + System.lineSeparator() +
+                "10: (six, seis, false)" + System.lineSeparator();
         String errorMessage = "The string for the hash table with double hashing is incorrect";
         actual = actual.trim();
-        expected = expected.trim();
-        Assert.assertEquals(errorMessage, expected, actual);
+        expected1 = expected1.trim();
+        expected2 = expected2.trim();
+        if (!expected1.equals(actual) && !expected2.equals(actual)) {
+            System.out.println("Actual: " + System.lineSeparator() + actual);
+            System.out.println("Expected: one of these two " + System.lineSeparator() + expected1 +
+                    System.lineSeparator() + "OR" + System.lineSeparator() + expected2);
+
+            Assert.fail(errorMessage);
+        }
 
     }
 }
